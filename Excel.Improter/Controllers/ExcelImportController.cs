@@ -263,5 +263,16 @@ namespace Excel.Improter.Controllers
             await dataContext.SaveChangesAsync();
             return RedirectToAction("Index");
         }
+
+        // Fərid Səmədov tərəfindən əlavə edildi
+        [HttpPost]
+        public ActionResult Delete(int id)
+        {
+            var data = dataContext.ExcelDatas.FirstOrDefault(i => i.Id == id);
+            dataContext.ExcelDatas.Remove(data);
+            dataContext.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
     }
 }

@@ -222,6 +222,10 @@
                     <tr class="centerTxt">
                         <th>
                             <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-success">Edit</a>
+                            @using (@Html.BeginForm("Delete", "ExcelImport", new { id = item.Id }))
+                            {
+                                <input type="submit" value="Delete" class="btn btn-danger" />
+                            }
                         </th>
                         <th>@i</th>
                         <td>@item.YataginInzibatiErazisi</td>
@@ -255,7 +259,6 @@
                     </tr>
                     i++;
                 }
-
 
             </tbody>
         </table>
